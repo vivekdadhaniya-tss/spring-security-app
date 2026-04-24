@@ -35,6 +35,7 @@ public class JwtTokenProvider {
         // This prevents serialization issues
         List<String> roles = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
+                .filter(role -> !role.startsWith("FACTOR_"))
                 .collect(Collectors.toList());
 
         return Jwts.builder()
