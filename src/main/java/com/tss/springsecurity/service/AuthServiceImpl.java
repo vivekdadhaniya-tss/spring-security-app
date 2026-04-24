@@ -54,7 +54,7 @@ public class AuthServiceImpl implements AuthService {
         return UserResponse.builder()
                 .userId(savedUser.getUserId())
                 .username(savedUser.getUsername())
-                .role(savedUser.getRole())
+                .role(savedUser.getRole().getRoleName())
                 .build();
     }
 
